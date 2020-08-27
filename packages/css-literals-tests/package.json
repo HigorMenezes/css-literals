@@ -1,9 +1,15 @@
 {
   "name": "css-literals-tests",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
-  }
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {}
 }
