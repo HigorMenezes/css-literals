@@ -1,2 +1,3 @@
-# css-literals
-Library to create css through template literals
+# Css literals project
+
+Css literals project workspace

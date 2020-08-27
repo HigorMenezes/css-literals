@@ -8,5 +8,8 @@
   "repository": "https://github.com/HigorMenezes/css-literals.git",
   "author": "Higor Menezes <higormenezes1996@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "eslint": "^7.7.0"
+  }
 }
