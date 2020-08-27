@@ -1,0 +1,12 @@
+{
+  "name": "css-literals-project",
+  "version": "0.0.1",
+  "description": "Css literals project",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "https://github.com/HigorMenezes/css-literals.git",
+  "author": "Higor Menezes <higormenezes1996@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

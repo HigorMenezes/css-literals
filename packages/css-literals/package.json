@@ -1,0 +1,23 @@
+{
+  "name": "css-literals",
+  "version": "0.0.1",
+  "description": "Library to create css through template literals",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "repository": "https://github.com/HigorMenezes/css-literals.git",
+  "author": "Higor Menezes <higormenezes1996@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.26.5",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "typescript": "^4.0.2"
+  }
+}
