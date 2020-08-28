@@ -1,1 +1,1 @@
-export const greet = () => console.log('Hello, world!');
+export { default as css } from './css-literals';
