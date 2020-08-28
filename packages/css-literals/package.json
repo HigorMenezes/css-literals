@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -cw"
+    "watch": "rollup -cw",
+    "lint": "eslint 'src/**/*.{js,ts}'"
   },
   "repository": "https://github.com/HigorMenezes/css-literals.git",
   "author": "Higor Menezes <higormenezes1996@gmail.com>",
