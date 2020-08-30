@@ -1,1 +1,1 @@
-export { default } from './css';
+export { default } from './cssLiterals';

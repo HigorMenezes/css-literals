@@ -1,1 +1,1 @@
-export { default as css } from './css-literals';
+export { default as cssLiterals } from './css-literals';

@@ -5,11 +5,13 @@ export function templateLiteralsToString(
 ) {
   const bakedString: string = strings.reduce(
     (accumulator: string, currentValue: string, currentIndex: number) => {
-      let value: string;
+      let value: string = '';
 
-      if (typeof values[currentIndex] === 'function') {
+      const typeOfValue = typeof values[currentIndex];
+
+      if (typeOfValue === 'function') {
         value = values[currentIndex](props);
-      } else {
+      } else if (typeOfValue === 'string' || typeOfValue === 'number') {
         value = String(values[currentIndex]);
       }
 
