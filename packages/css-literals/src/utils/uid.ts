@@ -1,4 +1,6 @@
-export const getUid: () => number = (() => {
+type getUidType = () => number;
+
+export const getUid: getUidType = (() => {
   let counter: number = 0;
 
   return (): number => {

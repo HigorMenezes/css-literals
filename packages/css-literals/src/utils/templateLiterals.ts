@@ -1,21 +1,28 @@
+interface propsInterface {
+  [key: string]: any;
+}
+
+type valueFunctionType = (props: propsInterface) => string;
+type valueType = string | number | valueFunctionType;
+
 export function templateLiteralsToString(
   strings: TemplateStringsArray,
-  values: any[],
-  props: any,
-) {
+  values: valueType[],
+  props: propsInterface,
+): string {
   const bakedString: string = strings.reduce(
     (accumulator: string, currentValue: string, currentIndex: number) => {
-      let value: string = '';
+      let valueString: string = '';
 
-      const typeOfValue = typeof values[currentIndex];
+      const value = values[currentIndex];
 
-      if (typeOfValue === 'function') {
-        value = values[currentIndex](props);
-      } else if (typeOfValue === 'string' || typeOfValue === 'number') {
-        value = String(values[currentIndex]);
+      if (typeof value === 'function') {
+        valueString = value(props);
+      } else if (typeof value === 'string' || typeof value === 'number') {
+        valueString = String(value);
       }
 
-      return accumulator + currentValue + value;
+      return accumulator + currentValue + valueString;
     },
     '',
   );

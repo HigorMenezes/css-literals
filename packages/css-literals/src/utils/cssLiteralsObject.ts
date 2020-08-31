@@ -4,13 +4,13 @@ interface styleObjectInterface {
   [key: string]: string;
 }
 
-export interface classesInterface {
+export interface getClassesFromObjectReturnInterface {
   [key: string]: string;
 }
 
 export function getClassesFromObject(
   styleObject: styleObjectInterface,
-): classesInterface {
+): getClassesFromObjectReturnInterface {
   const classes = Object.keys(styleObject).reduce(
     (accumulator, currentValue) => {
       return {
