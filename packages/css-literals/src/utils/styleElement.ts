@@ -1,8 +1,8 @@
-interface createStyleElementReturnInterface {
+interface CreateStyleElementReturnInterface {
   setValue(value: string): void;
 }
 
-export function createStyleElement(): createStyleElementReturnInterface {
+export function createStyleElement(): CreateStyleElementReturnInterface {
   const styleElement = document.createElement('style');
   const headElement = document.getElementsByTagName('head')[0];
   headElement.appendChild(styleElement);

@@ -4,26 +4,26 @@ import { getClassesFromObject } from '../utils/cssLiteralsObject';
 import cssPreprocessor from '../utils/cssPreprocessor';
 import shallowCompare from '../utils/shallowCompare';
 
-type valueFunctionType = (props: propsInterface) => string;
-type valueType = string | number | valueFunctionType;
+type ValueFunctionType = (props: PropsInterface) => string;
+type ValueType = string | number | ValueFunctionType;
 
-type cssFunctionType = (
+type CssFunctionType = (
   strings: TemplateStringsArray,
-  ...values: valueType[]
+  ...values: ValueType[]
 ) => string;
-interface propsInterface {
+interface PropsInterface {
   [key: string]: any;
 }
-interface classesInterface {
+interface ClassesInterface {
   [key: string]: string;
 }
 
-type callbackFunctionType = (cssFunction: cssFunctionType) => classesInterface;
+type CallbackFunctionType = (cssFunction: CssFunctionType) => ClassesInterface;
 
-function cssLiterals(callback: callbackFunctionType) {
+function cssLiterals(callback: CallbackFunctionType) {
   const styleElement = createStyleElement();
-  let prevClasses: classesInterface = {};
-  let prevProps: propsInterface = {};
+  let prevClasses: ClassesInterface = {};
+  let prevProps: PropsInterface = {};
 
   return (props: any) => {
     if (shallowCompare(props, prevProps)) {
@@ -31,7 +31,7 @@ function cssLiterals(callback: callbackFunctionType) {
     }
 
     const styleObject = callback(
-      (strings: TemplateStringsArray, ...values: valueType[]) =>
+      (strings: TemplateStringsArray, ...values: ValueType[]) =>
         templateLiteralsToString(strings, values, props),
     );
 

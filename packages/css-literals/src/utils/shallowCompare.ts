@@ -1,10 +1,10 @@
-interface objCompareInterface {
+interface ObjCompareInterface {
   [key: string]: any;
 }
 
 function shallowCompare(
-  objA: objCompareInterface,
-  objB: objCompareInterface,
+  objA: ObjCompareInterface,
+  objB: ObjCompareInterface,
 ): boolean {
   return !Object.keys({ ...objA, ...objB }).find(
     (key) => objA[key] !== objB[key],

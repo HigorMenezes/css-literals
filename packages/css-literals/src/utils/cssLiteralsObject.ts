@@ -1,16 +1,16 @@
 import { getUid } from './uid';
 
-interface styleObjectInterface {
+interface StyleObjectInterface {
   [key: string]: string;
 }
 
-export interface getClassesFromObjectReturnInterface {
+export interface GetClassesFromObjectReturnInterface {
   [key: string]: string;
 }
 
 export function getClassesFromObject(
-  styleObject: styleObjectInterface,
-): getClassesFromObjectReturnInterface {
+  styleObject: StyleObjectInterface,
+): GetClassesFromObjectReturnInterface {
   const classes = Object.keys(styleObject).reduce(
     (accumulator, currentValue) => {
       return {
