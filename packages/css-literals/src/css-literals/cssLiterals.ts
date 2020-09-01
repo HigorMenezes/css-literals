@@ -4,6 +4,13 @@ import { getClassesFromObject } from '../utils/cssLiteralsObject';
 import cssPreprocessor from '../utils/cssPreprocessor';
 import shallowCompare from '../utils/shallowCompare';
 
+type valueFunctionType = (props: propsInterface) => string;
+type valueType = string | number | valueFunctionType;
+
+type cssFunctionType = (
+  strings: TemplateStringsArray,
+  ...values: valueType[]
+) => string;
 interface propsInterface {
   [key: string]: any;
 }
@@ -11,7 +18,7 @@ interface classesInterface {
   [key: string]: string;
 }
 
-type callbackFunctionType = (props: propsInterface) => classesInterface;
+type callbackFunctionType = (cssFunction: cssFunctionType) => classesInterface;
 
 function cssLiterals(callback: callbackFunctionType) {
   const styleElement = createStyleElement();
@@ -24,7 +31,7 @@ function cssLiterals(callback: callbackFunctionType) {
     }
 
     const styleObject = callback(
-      (strings: TemplateStringsArray, ...values: any[]) =>
+      (strings: TemplateStringsArray, ...values: valueType[]) =>
         templateLiteralsToString(strings, values, props),
     );
 
